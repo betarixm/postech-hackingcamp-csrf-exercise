@@ -1,0 +1,10 @@
+{% extends "main.html" %}
+
+{% block title %}Upload{% endblock %}
+{% block content %}
+    <div class="board">
+        <h2 class="title">{{ post.title }}</h2>
+        <div class="content">{{ post.content | safe }}</div>
+        <a class="btn" href={{ url_for("index") }}>뒤로</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "main.html" %}
+
+{% block title %}Board{% endblock %}
+{% block content %}
+    <div class="board">
+        <div class="title">공지사항</div>
+        <a class="btn" href={{ url_for("notice") }}>글쓰기</a>
+        {% for idx, notice in enumerate(notices) %}
+            <div class="row">
+                <a href={{ url_for("view", category="notice", idx=idx) }}>{{ notice.title }}</a>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="board">
+        <div class="title">자유게시판</div>
+        <a class="btn" href={{ url_for("post") }}>글쓰기</a>
+        {% for idx, notice in enumerate(posts) %}
+            <div class="row">
+                <a href={{ url_for("view", category="post", idx=idx) }}>{{ notice.title }}</a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
